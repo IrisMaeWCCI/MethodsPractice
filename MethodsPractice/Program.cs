@@ -16,7 +16,21 @@ namespace MethodsPractice
             //There are built in methods Such as
             //Split, WriteLine, ReadLine
             //Arrays - Reverse, Sort
+            Console.WriteLine("Hello. Please enter the first number to be added");
+            int number1 = int.Parse(Console.ReadLine());
+            Console.WriteLine("Hello. Please enter a second number to be added");
+            int number2 = int.Parse(Console.ReadLine());
 
+            int answer = Add(number1, number2);
+            Console.WriteLine(answer);
+
+            RobotWarning("Will Robinson");
+            Useless();
+            string myBirthMonth = "September";
+            string myFriendBirthMonth = "December";
+            string myVehicle = Vehicle(myBirthMonth);
+            string myFriendVehicle = Vehicle(myFriendBirthMonth);
+            Console.WriteLine("My future vehicle is {0} and Jordan's future vehicle {1}.", myVehicle, myFriendVehicle);
             //Methods are a tool for us to create reusable pieces of code
             //They create less error prone code
             //They'll never be created inside of anthor method or member of the class
@@ -31,28 +45,40 @@ namespace MethodsPractice
             //Access Modifier- ReturnType - MethodName( in Pascal Case)- Parenthesis (sometimes with parameters)
             //Parameters function sometimes as temporary variables
             //parameters dont have to have the same reutrn type
-            public static int Add(int firstNumber, int secondNumber)
-            {
+        public static int Add(int firstNumber, int secondNumber)
+        {
             //Method body
             //A complete method - header and body- is called a method declaration
             //Static means we don't have to worry about objects
             //Methods should only perform one task and that should be the name we have given them
             //The return keyword takes whatever value is determined by using this method and sends that value back to where I call my method
             //If you have a method that does not have a return value, you would use the keyword void. When we have a void return type we DONT need to use the keyword return
-            Console.WriteLine("Hello. Please enter the first number to be added");
-            int number1 = int.Parse(Console.ReadLine());
-            Console.WriteLine("Hello. Please enter a second number to be added");
-            int number2 = int.Parse(Console.ReadLine());
-
-            int sum = firstNumber + secondNumber; 
+            int sum = firstNumber + secondNumber;
             return sum;
+            //int answer = Add(number1 + number2);
 
-            // int answer = Add(5, 7);
-            //or
-            int answer = Add(number1 + number2);
-            Console.WriteLine(answer);
+        }
+        public static void RobotWarning (string name)
+        {
+            Console.WriteLine("Danger, " + name + "!!");
+        }
+        public static void Useless()
+        {
+            Console.WriteLine("Blah blah blah");
+        }
+        public static string Vehicle(string birthMonth)
+        {
+            string vehicleFortune;
+            if (birthMonth.ToUpper()=="SEPTEMBER"|| birthMonth.ToUpper() == "OCTOBER")
+            {
+                vehicleFortune = "Hoverboard";
 
             }
-        
+            else
+            {
+                vehicleFortune = "SUV";
+            }
+            return vehicleFortune;
+        }
     }
 }
