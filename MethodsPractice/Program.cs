@@ -31,6 +31,27 @@ namespace MethodsPractice
             string myVehicle = Vehicle(myBirthMonth);
             string myFriendVehicle = Vehicle(myFriendBirthMonth);
             Console.WriteLine("My future vehicle is {0} and Jordan's future vehicle {1}.", myVehicle, myFriendVehicle);
+
+            Console.WriteLine("Please enter a name");
+            string theName = Console.ReadLine();
+            Console.WriteLine("Please enter food");
+            string theFood = Console.ReadLine();
+            FavoriteFood(theName, theFood);
+            Console.WriteLine();
+
+            RetirementCalculator(age);
+            Console.WriteLine("Please enter an age");
+            int age = int.Parse(Console.ReadLine());
+            int retirementAge = 65;
+            Console.WriteLine("The user will retire in " + retirementAge + "years");
+
+            double hoursWorked = 42.3d;
+            double hourlyWage = 12.50d;
+
+            WageCalculator(hoursWorked,hourlyWage)
+             Console.WriteLine("Your monthly wage is{0}.", WageCalculator(hoursWorked, hourlyWage));
+            //you dont have to use the same variable names from class to class, but you totally can if you want
+            //user input all goes inside of the main method
             //Methods are a tool for us to create reusable pieces of code
             //They create less error prone code
             //They'll never be created inside of anthor method or member of the class
@@ -79,6 +100,27 @@ namespace MethodsPractice
                 vehicleFortune = "SUV";
             }
             return vehicleFortune;
+
+        }
+        public static void FavoriteFood(string name, string food)
+        {
+           
+            Console.WriteLine(name+"'s favorite food is " +food+"!");
+        }
+        public static int RetirementCalculator(int age)
+        {
+             
+            int userAge = int.Parse(Console.ReadLine());
+            int retirementAge = 65- userAge;
+            Console.WriteLine("The user will retire in " + retirementAge + "years");
+            
+        }
+        public static double WageCalculator(double hoursWorkedWeekly, double hourlyWage)
+        {
+            //This method should calculate the MONTHLY wage
+            double monthlyWage = (hoursWorkedWeekly * 52 * hourlyWage) / 12;//this should provided us with our average monthly calculation
+
+            return monthlyWage;
         }
     }
 }
